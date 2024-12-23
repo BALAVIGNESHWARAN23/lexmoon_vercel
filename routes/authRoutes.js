@@ -32,7 +32,7 @@ router.get(
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/login" }), 
     (req, res) => {
-        res.redirect("/mainpage.html");
+        res.redirect("https://lexmoon.streamlit.app/");
     }
 );
 

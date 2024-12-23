@@ -12,7 +12,7 @@ exports.signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({ name, email, password: hashedPassword,password_view: password  });
         await user.save();
-        return res.redirect('/mainpage.html');
+        return res.redirect('https://lexmoon.streamlit.app/');
     } catch (err) {
         console.error(err);
     }
@@ -30,7 +30,7 @@ exports.login = async (req, res) => {
                 console.error(err);
                 return res.redirect('/loginerror.html');
             }
-            return res.redirect('/mainpage.html');
+            return res.redirect('https://lexmoon.streamlit.app/');
         });
     } catch (err) {
         console.error(err);
@@ -44,7 +44,7 @@ exports.checkUserEmail = async (req, res) => {
         try {
             const user = await User.findOne({ email });
             if (user) {
-                return res.redirect('/mainpage.html');
+                return res.redirect('https://lexmoon.streamlit.app/');
             } else {
                 return res.redirect('/indexbg.html');
             }
